@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>BANKING APPLICATION</title>
+	<script>
+		function save() {
+			const name = document.getElementById("name");
+			const dob = document.getElementById("dob");
+			const gender = document.getElementById("gender");
+			const email = document.getElementById("email");
+			const houseNo = document.getElementById("houseNo");
+			const city = document.getElementById("city");
+			const state = document.getElementById("state");
+			const pin = document.getElementById("pin");
+			const telephone_no = document.getElementById("telephone_no");
+			const fax = document.getElementById("fax");
+			alert("name:" + name.value + "  Date of Birth:" + dob.value + "   Gender:" + gender.value + "  Email:" 
+						+ email.value + "  House Number:" + houseNo.value + "  City:" +city.value+ "  State:" +state.value+ "  PIN:" +pin.value+ " Telephone number:"
+						+telephone_no.value+ "  Fax:"  +fax.value);
+			const payload = {
+				name: name.value,
+				dob: dob.value,
+				gender: gender.value,
+				email: email.value,
+				houseNo: houseNo.value,
+				city: city.value,
+				state: state.value,
+				pin: pin.value,
+				telephone_no: telephone_no.value,
+				fax: fax.value
+
+			}
+
+
+			const options = {
+				method: 'POST',
+				body: JSON.stringify(payload),
+				headers: {
+					"content-type": "application/json"
+
+				}
+
+			}
+			fetch("http://localhost:8081/addCustomers", options)
+		}
+	</script>  
+</head>
+
+<body>
+text
+	<form>>
+		<div>Customer Form</div>
+		<input placeholder="Name" id="name">
+		<input placeholder="Date of birth" id="dob"></br>
+		<input placeholder="Gender" id="gender">
+		<input type="email" placeholder="Email" id="email" required>
+		<input placeholder="House Number" id="houseNo">
+		<input placeholder="City" id="city">
+		<input placeholder="State" id="state">
+		<input placeholder="Pin" id="pin">
+		<input placeholder="Telephone number" id="telephone_no">
+		<input placeholder="fax" id="fax">
+	</form>
+
+	<button onClick="save()">save</button>
+</body>
+
+</html>
